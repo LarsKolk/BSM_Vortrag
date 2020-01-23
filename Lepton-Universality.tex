@@ -1,0 +1,70 @@
+% This example is meant to be compiled with lualatex or xelatex
+% The theme itself also supports pdflatex
+\PassOptionsToPackage{unicode}{hyperref}
+\documentclass[aspectratio=1610, 9pt]{beamer}
+
+% Load packages you need here
+\usepackage{polyglossia}
+\setmainlanguage{german}
+\setmonofont{Libertinus Mono}
+\usepackage{csquotes}
+\usepackage{transparent}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+
+\usepackage{hyperref}
+\usepackage{bookmark}
+\usepackage{booktabs}
+\usepackage{color}
+
+\usepackage{siunitx}
+\usepackage{atlasphysics}
+\usepackage{caption}
+\usepackage[
+  backend=biber,
+]{biblatex}
+% Quellendatenbank
+\addbibresource{lit.bib}
+
+% load the theme after all packages
+
+\usetheme[
+  showtotalframes, % show total number of frames in the footline
+]{tudo}
+
+% Put settings here, like
+\unimathsetup{
+  math-style=ISO,
+  bold-style=ISO,
+  nabla=upright,
+  partial=upright,
+  mathrm=sym,
+}
+
+\newcommand{\hidecontent}[2][0.25]{{% \hidecontent[<transparency>]{<stuff>}
+  \setbox9=\hbox{#2}% Store <stuff> in \box9 to obtain height/width
+  \transparent{#1}\ooalign{\usebox9\cr\color{white}\rule{\wd9}{\ht9}\cr}}}
+
+\title{what is lepton universality and what do we know about it ?}
+\author[L.~Kolk]{Lars Kolk}
+\institute[Fakultät Physik]{Fakultät Physik}
+%\titlegraphic{\includegraphics[width=0.7\textwidth]{images/tudo-title-2.jpg}}
+
+
+\begin{document}
+
+\maketitle
+
+
+\begin{frame}{Einführung}
+  \tableofcontents
+\end{frame}
+
+\input{content/introduction.tex}
+\input{content/LU.tex}
+\input{content/LU-tests.tex}
+\input{content/Leptoquarks.tex}
+\input{content/conclusion.tex}
+\end{document}

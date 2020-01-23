@@ -1,0 +1,10 @@
+\boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
+\defcounter {refsection}{0}\relax 
+\select@language {german}
+\beamer@sectionintoc {1}{Lepton Universality in the Standard Modell}{3}{0}{1}
+\beamer@sectionintoc {2}{Lepton Universality Tests}{16}{0}{2}
+\beamer@subsectionintoc {2}{1}{The Electroweak Sector}{16}{0}{2}
+\beamer@subsectionintoc {2}{2}{Pseudoscalar Mesons}{31}{0}{2}
+\beamer@subsectionintoc {2}{3}{Meson Mixing}{37}{0}{2}
+\beamer@sectionintoc {3}{Beyond Standard Model: Leptoquarks}{41}{0}{3}
+\beamer@sectionintoc {4}{Conclusion}{46}{0}{4}

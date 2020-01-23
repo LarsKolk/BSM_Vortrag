@@ -1,0 +1,576 @@
+\documentclass[11pt,a4paper,titlepage]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{sidecap}
+\usepackage{hyperref}
+\usepackage{siunitx}
+\usepackage{booktabs}
+\usepackage{animate}
+%\usepackage{multimedia}
+\usepackage{selinput}
+\usepackage{media9}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{subcaption}
+\usepackage{appendixnumberbeamer}
+\usepackage[
+  backend=biber,   % use modern biber backend
+  autolang=hyphen, % load hyphenation rules for if language of bibentry is not
+  style=numeric,                 % german, has to be loaded with \setotherlanguages
+  sorting=none                 % in the references.bib use langid={en} for english sources
+]{biblatex}
+\addbibresource{references.bib}  % the bib file to use
+\DefineBibliographyStrings{german}{andothers = {{et\,al\adddot}}}  % replace u.a. with et al.
+\useoutertheme{infolines2}
+\colorlet{structure}{green!50!black}
+\definecolor{tugreen}{RGB}{132,184,24}
+\definecolor{tugrey}{RGB}{178,179,182}
+\definecolor{tured}{RGB}{205,0,47}
+\setbeamercolor{palette primary}{bg=tugreen,fg=black}
+\setbeamercolor{palette secondary}{bg=tugrey!50!tugreen,fg=black}
+\setbeamercolor{palette quaternary}{fg=black, bg=tugrey}
+\setbeamercolor{caption name}{fg=tugreen}
+\setbeamercolor{palette tertiary}{fg=black,bg=tugrey}
+
+
+\setbeamercolor{palette compare}{bg=white!80!tugreen,fg=black}
+\setbeamercolor{palette misc}{bg=white!80!tugreen,fg=black}
+\setbeamercolor{palette white}{bg=white!99!black,fg=black}
+
+\setbeamercolor{itemize item}{fg=tugreen}
+\setbeamercolor{itemize subitem}{fg=tugreen}
+\setbeamercolor{itemize subsubitem}{fg=tugreen}
+\setbeamercolor{enumerate item}{fg=tugreen}
+\setbeamercolor{enumerate subitem}{fg=tugreen}
+\setbeamertemplate{itemize item}[square]
+\setbeamercolor{title}{fg=black, bg=tugreen}
+\setbeamercolor{frametitle}{fg=black, bg=tugreen}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{frametitle}[default][center]
+
+
+\setbeamertemplate{titlepage}{
+\begin{center}
+ \begin{beamercolorbox}[rounded=true, shadow=true, center,ht=0.75cm]{title}
+ \begin{center}
+ \usebeamerfont{title}\inserttitle
+ \end{center}
+ \end{beamercolorbox}
+\vspace{1cm}
+ \usebeamerfont{subtitle}\insertsubtitle \\
+ \vspace{1cm}
+ \usebeamerfont{author}\insertauthor \\
+ \vspace{1cm}
+ \insertinstitute
+ \usebeamerfont{date}\insertdate
+\begin{flushleft}\hspace*{4cm}%\includegraphics[width=5cm]{logos/tu.pdf}\end{flushleft}
+\end{center}
+}
+\author{Jonah Blank}
+\title{Indirect search for Dark Matter}
+\date{28.11.2019}
+\institute{TU Dortmund}
+\begin{document}
+%\begin{frame}[plain]
+%\begin{tikzpicture}[remember picture,overlay]
+%\node[at=(current page.center)] {
+%%\includegraphics[width=1.2\paperwidth,height=\paperheight]{build/coma.pdf}
+%};
+%\end{tikzpicture}
+%\end{frame}
+\begin{frame}
+\titlepage
+\end{frame}
+\begin{frame}[plain]
+\begin{tikzpicture}[remember picture,overlay]
+\node[at=(current page.center)] {
+%\includegraphics[width=0.65\paperwidth,height=0.65\paperheight]{build/dir_ind_col.png}
+};
+\end{tikzpicture}
+\footnotetext[1]{inspirehep.net}
+\end{frame}
+\begin{frame}
+\tableofcontents
+\end{frame}
+\section{Hints for Dark Matter(DM)}
+%\begin{frame}{Hints for Dark Matter(DM)}
+%gravitational effect:
+%\begin{itemize}
+%\item existence of galaxy clusters
+%\begin{itemize}
+%\item Virial: $E_\text{kin}=-\left(\frac{1}{2}\right)\cdot E_\text{grav}$
+%\item $E_\text{grav}$ way too small assuming only visible matter
+%\end{itemize}\vfill
+%\item galaxy rotation: velocity of outer rim
+%\begin{itemize}
+%\item distance $r$ from galactic center: $v_\text{rot}\propto\frac{1}{\sqrt{r}}$\vfill
+%\item measured: $v_\text{rot}\approx$ const
+%\end{itemize}\vfill
+%\item fluctuations in cosmic microwave background (CMB)
+%\begin{itemize}
+%\item fluctuation of hot matter in early universe\vfill
+%\item gravity $\leftrightarrow$ radiation pressure
+%\end{itemize}
+%\end{itemize}
+%\end{frame}
+\setbeamercolor{normal text}{fg=white,bg=black}
+\renewcommand\footnoterule{}
+\begin{frame}[plain]
+\begin{tikzpicture}[remember picture,overlay]
+\node[at=(current page.center)] {
+%\includegraphics[width=1.2\paperwidth,height=\paperheight]{build/coma.pdf}
+};
+\end{tikzpicture}
+\footnotetext[2]{arXiv:1604.00014}
+\end{frame}
+\renewcommand{\footnoterule}{%
+  \kern -5pt
+  \hrule width \textwidth 
+  \kern 2pt
+}
+\setbeamercolor{normal text}{fg=black,bg=white}
+\begin{frame}{Hints for Dark Matter(DM)}
+gravitational effect:
+\begin{itemize}
+\item existence of galaxy clusters
+\begin{itemize}
+\item Virial: $\bar{E}_\text{kin}=-\left(\frac{1}{2}\right)\cdot \bar{E}_\text{grav}$\vfill
+\item $E_\text{grav}$ way too small assuming only visible matter
+\end{itemize}\vfill\pause
+\item galaxy rotation: velocity of outer rim
+\begin{itemize}
+\item distance $r$ from galactic center: $v_\text{rot}\propto\frac{1}{\sqrt{r}}$\vfill
+\item measured: $v_\text{rot}\approx$ const
+\end{itemize}\vfill\pause
+\item the cosmic microwave background (CMB)
+\begin{itemize}
+\item oscillation of hot matter in early universe\vfill
+\item gravity $\leftrightarrow$ radiation pressure
+\end{itemize}
+\end{itemize}
+\end{frame}
+\begin{frame}{Hints for Dark Matter(DM)}
+\begin{figure}
+\begin{minipage}{0.45\textwidth}
+fluctuations in CMB:
+\begin{itemize}
+\item oscillation of hot matter in early universe\vfill
+\item gravity $\leftrightarrow$ radiation pressure\vfill
+\item after cooling down red/blue shift due to gravitational field\\
+$\rightarrow$ power spectrum
+\end{itemize}
+\end{minipage}
+\begin{minipage}{0.53\textwidth}
+%\includegraphics[keepaspectratio,width=0.9\textwidth]{build/cmb.pdf}
+\end{minipage}
+\end{figure}
+\footnotetext[3]{Integrierter Kurs Physik 3, Prof. Tolan, Prof. Stolze, WS17/18, TU Dortmund}
+\end{frame}
+\begin{frame}{The CMB power spectrum - DM dependency}
+\begin{figure}
+\begin{subfigure}{0.45\textwidth}
+%\includegraphics[width=0.68\textwidth]{build/clmatter/clmatter-001.png}
+%\includegraphics[width=0.68\textwidth]{build/clmatter/clmatter-015.png}
+\end{subfigure}
+\begin{subfigure}{0.45\textwidth}\pause
+%\includegraphics[width=0.75\textwidth]{build/clmatter/clmatter-004.png}\pause
+\begin{itemize}
+\item spectrum changes for different DM densities
+\item peak ratio and decay rate to calculate amount of DM
+\end{itemize}
+\end{subfigure}\
+\end{figure}
+\footnotetext[4]{www.uchicago.edu}
+\end{frame}
+\begin{frame}{The CMB power spectrum - Planck measurement}
+\begin{figure}
+%\includegraphics[width=0.9\textwidth]{build/power.pdf}
+\end{figure}
+\footnotetext[5]{arXiv:1303.5075}
+\end{frame}
+\begin{frame}{The energy density distribution}
+\begin{figure}
+\begin{subfigure}{0.45\textwidth}
+%\includegraphics[width=0.9\textwidth]{build/power.pdf}
+\end{subfigure}
+\begin{subfigure}{0.45\textwidth}
+%\includegraphics[width=0.8\textwidth]{build/pie.pdf}
+\end{subfigure}
+\end{figure}\medskip
+\begin{itemize}
+\item only $5\%$ of energy in the universe explained by normal matter\medskip
+\item 5x more DM than baryonic matter\medskip
+\only<2>{\item But what \textbf{is} dark matter?}
+\end{itemize}
+\footnotetext[6]{arXiv:1303.5075}
+\footnotetext[7]{Studies of dark matter annihilation and production in the Universe,\\ Carl Niblaeus (2019)}
+\end{frame}
+\setbeamercolor{normal text}{fg=white,bg=black}
+\renewcommand\footnoterule{}
+\begin{frame}[plain]
+\begin{tikzpicture}[remember picture,overlay]
+\node[at=(current page.center)] {
+%\includegraphics[width=1\paperwidth,height=\paperheight]{build/types.png}
+};
+\end{tikzpicture}
+\footnotetext[8]{cf. physics.aps.org}
+\end{frame}
+\renewcommand{\footnoterule}{%
+  \kern -3pt
+  \hrule width \textwidth
+  \kern 2pt
+}
+\setbeamercolor{normal text}{fg=black,bg=white}
+\section{Possible DM candidates}
+\begin{frame}{Possible DM candidates}
+\begin{itemize}
+\item sterile neutrinos\footnotemark[9]
+\begin{itemize}
+\item additional right-handed neutrino eigenstate (ES), mass $\mathcal{O}(\si{\kilo\eV})$ \medskip
+\item falling out of equilibrium at $T\geq m_{\nu} \rightarrow$ hot/warm thermal relic\medskip
+\item mixing of mass ES (PMNS matrix)$\rightarrow$ small share of active ES\medskip
+\item heavier (sterile) can decay into lighter (active) mass ES: $\nu_\text{s} \rightarrow \nu_\text{a} + \gamma$\medskip
+\item photon emission line at $\si{\kilo\eV}$
+\end{itemize}\vfill
+\item super heavy gravitinos\footnotemark[10]
+\begin{itemize}
+\item 8 gravitinos, $m_\text{gr}\propto \SI{2e18}{\giga\eV} \rightarrow$ UHECR\medskip
+\item participating in strong and EM interaction, $\alpha_\text{s,em}\propto \mathcal{O}(1)$\medskip
+\item 2 color triplets - EM charge $\pm \frac{1}{3}$, 2 color singlets - EM charge $\pm \frac{2}{3}$\medskip
+\item SM interaction only through annihilation
+\end{itemize}
+\end{itemize}
+\footnotetext[9]{arXiv:1901.00151}
+\footnotetext[10]{arXiv:1906.07262}
+\end{frame}
+\begin{frame}{\textbf{W}eakly \textbf{I}nteracting \textbf{M}assive \textbf{P}articles}
+\begin{figure}
+\begin{minipage}{0.65 \textwidth}
+\begin{itemize}
+\item WIMPs
+\begin{itemize}
+\item weak scale masses $\rightarrow$ search in gamma and cosmic rays\medskip
+\item only interacting via weak interaction\medskip
+\item annihilation cross section $\langle \sigma_\text{A}v\rangle\approx \SI{3e-26}{\centi\meter^3\per\second}$\medskip
+\item thermally produced until \glqq freeze out\grqq\\
+at $T<m_\text{WIMP}\rightarrow$ cold thermal relic\medskip
+\item non-relativistic DM forming structures in the universe\medskip
+\item $\Omega_\text{WIMP} = \frac{\rho_\text{WIMP}}{\rho_\text{c}}\propto 0.2$
+\end{itemize}
+\end{itemize}
+\end{minipage}
+\begin{minipage}{0.34\textwidth}
+%\includegraphics[width=0.9\textwidth]{build/WIMP.pdf}
+\end{minipage}
+\end{figure}
+\footnotetext[11]{nasa.gov}
+\end{frame}
+\begin{frame}{The thermal equilibrium}
+\begin{minipage}{\textwidth}
+\centering
+%\includegraphics[width=0.5\textwidth]{build/equi.png}
+\end{minipage}
+\begin{minipage}{\textwidth}
+\begin{itemize}
+\item thermal equilibrium at $T\approx m_\text{DM}$\medskip
+\item moment of freeze out important for modern structure of the universe
+\item dependent on annihilation cross section
+\end{itemize}
+\end{minipage}
+\footnotetext[12]{arXiv:1812.02029}
+\end{frame}
+%\begin{frame}{Possible DM candidates}
+%\begin{itemize}
+%\item super heavy DM
+%\begin{itemize}
+%\item cosmologically stable, low interaction rate\medskip
+%\item not produced in thermodynamic equilibrium\medskip
+%\item $m_\text{heavy}\propto \SI{e12}{\giga\eV} \rightarrow$ searched for in Ultra-High-Energy Cosmic Rays (UHECR)
+%\end{itemize}\vfill
+%\end{frame}
+\setbeamercolor{normal text}{fg=white,bg=black}
+\renewcommand\footnoterule{}
+\begin{frame}[plain]
+\begin{tikzpicture}[remember picture,overlay]
+\node[at=(current page.center)] {
+%\includegraphics[width=1.2\paperwidth,height=\paperheight]{build/bullet.jpg}
+};
+\end{tikzpicture}
+\footnotetext[13]{chandra.harvard.edu}
+\end{frame}
+\renewcommand{\footnoterule}{%
+  \kern -3pt
+  \hrule width \textwidth
+  \kern 2pt
+}
+\setbeamercolor{normal text}{fg=black,bg=white}
+\section{Indirect searches for DM}
+\subsection{Cosmic sources}
+\begin{frame}{Cosmic sources for indirect detection}
+\begin{figure}
+\only<1>{\begin{minipage}{\textwidth}
+\begin{itemize}
+\item weak scale mass DM\\
+$\rightarrow$ final states at SM and gamma ray energies\medskip
+\item equal amounts of anti-/matter with max energy $m_\text{DM}$ each\\
+in DM annihilation\medskip
+\item photons experience no deflection in the universe\\
+$\rightarrow$ spatial information to distinguish source
+\end{itemize}
+\end{minipage}}\vfill
+\begin{minipage}{\textwidth}
+\begin{small}
+\begin{align*}
+\Phi_\text{x,ann}(\Delta\Omega)&=\frac{1}{2}\frac{\mathrm{d}N_\text{x}}{\mathrm{d}E}\frac{\langle\sigma v \rangle}{4\pi m^2_\text{DM}}\cdot J_\text{ann}(\Delta\Omega)\\
+J_\text{ann}(\Delta\Omega)&=\int_{\Delta\Omega}\int_\text{los}\rho^2_\text{DM}\mathrm{d}\ell\mathrm{d}\Omega
+\end{align*}
+\end{small}
+\end{minipage}
+\begin{minipage}{\textwidth}
+\centering
+\only<2>{%\includegraphics[width=0.8\textwidth]{build/j_fac.png}}
+\only<3>{%\includegraphics[width=0.8\textwidth]{build/j_fac2.png}}
+\end{minipage}
+\end{figure}
+\only<2-3>{\footnotetext[12]{arXiv:1812.02029}}
+\end{frame}
+\begin{frame}{Gamma Ray Detection: The Draco Spheroidal Dwarf Galaxy}
+\begin{figure}
+\begin{minipage}{0.48\textwidth}
+\begin{itemize}
+\item distance: 260,000 ly\medskip
+\item diameter: 3000 ly\medskip
+\item bright mass: 22,000,000 $M_{\odot}$\medskip
+\item $J_\text{ann}\propto\SI{e18.8}{\giga\eV^2\per\centi\meter^5}$
+%$\rightarrow \Phi_\gamma\approx \SI{5e-12}{\centi\meter^{-2}\second^{-1}}\left(\frac{\langle\sigma v\rangle}{\SI{2.2e-26}{\centi\meter^3\per\second}}\right)\left(\frac{\int\frac{\mathrm{d}N_\gamma}{\mathrm{d}E_\gamma}\mathrm{d}E_\gamma}{10}\right)\left(\frac{\SI{100}{\giga\eV}}{m_\text{DM}}\right)^2\left(\frac{J}{\SI{e18.8}{\giga\eV^2\per\centi\meter^5}}\right)$
+\end{itemize}
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
+\centering
+%\includegraphics[width=0.75\textwidth]{build/m87_ell.png}
+\end{minipage}
+\begin{minipage}{\textwidth}
+\[
+\rightarrow\Phi_\gamma\propto \SI{5e-12}{\centi\meter^{-2}\second^{-1}}\left(\frac{\SI{100}{\giga\eV}}{m_\text{DM}}\right)^2
+\]
+\uncover<2>{\begin{itemize}
+\item Fermi Large Area Telescope effective area $\SI{0.85}{\meter^2}$\\
+$\rightarrow$ 0.3 photons per year from DM annihilation detected
+\end{itemize}}
+\end{minipage}
+\end{figure}
+\footnotetext[14]{cornell.edu}
+\end{frame}
+\subsection{Current experiments}
+\begin{frame}{Ground based vs. orbiting telescopes}
+\begin{columns}[T]
+\begin{column}{0.49\textwidth}
+\begin{itemize}
+\item ground based telescopes
+\begin{itemize}
+\item capture only part of the sky\medskip
+\item have to take in account atmosphere\\
+$\rightarrow$ only useful for high energy measurements\medskip
+\item bigger detectors for better resolution
+\end{itemize}
+\end{itemize}
+\hspace{1cm}%\includegraphics[width=0.9\textwidth]{build/CTA.png}
+\end{column}
+\begin{column}{0.49\textwidth}
+\begin{itemize}
+\item orbiting telescopes
+\begin{itemize}
+\item difficult maintenance\medskip
+\item limited resolution and size\medskip
+\item variable target of observation\medskip
+\item cover lower energy spectra
+\end{itemize}
+\end{itemize}
+\vspace{0.3cm}
+\hspace{0.1cm}%\includegraphics[width=0.9\textwidth]{build/Fermi_LAT.jpg}
+\end{column}
+\end{columns}
+\footnotetext[15]{cta-observatory.org}
+\footnotetext[16]{nasa.gov}
+\end{frame}
+\begin{frame}{Current experiments}
+\begin{figure}
+\begin{minipage}{0.45\textwidth}
+\only<1>{%\includegraphics[width=0.85\textwidth]{build/exp.pdf}}
+\only<2-3>{%\includegraphics[width=0.85\textwidth]{build/exp2.pdf}}
+\end{minipage}\pause
+\begin{minipage}{0.52\textwidth}
+\begin{itemize}
+\item Alpha Magnetic Spectrometer: long term experiment at ISS\medskip \pause
+\item AMS-02 collaboration presented new results in 2019
+\end{itemize}
+\end{minipage}\vfill
+\begin{minipage}{\textwidth}
+\begin{itemize}
+\item confirming excess in high energetic positrons from previous measurements\medskip
+\item new: similar distribution of anti-protons
+\end{itemize}
+\end{minipage}
+\end{figure}
+\footnotetext[17]{arXiv:1604.00014}
+\end{frame}
+\begin{frame}{\textbf{A}lpha \textbf{M}agnetic \textbf{S}pectrometer}
+\begin{figure}
+\begin{minipage}{0.8\textwidth}
+%\includegraphics[keepaspectratio,width=0.9\textwidth]{build/ams_ges.pdf}
+\end{minipage}
+\begin{minipage}{\textwidth}
+\begin{itemize}
+\item internal data rate $\approx 7 \text{GB/s}$, transmission rate $\approx 2 \text{MB/s}$
+\item 140 billion registered events since 2011
+\end{itemize}
+\end{minipage}
+\end{figure}
+\footnotetext[18]{inspirehep.net}
+\end{frame}
+\begin{frame}{\textbf{A}lpha \textbf{M}agnetic \textbf{S}pectrometer}
+\begin{figure}
+\begin{minipage}{0.5\textwidth}
+%\includegraphics[width=0.8\textwidth]{build/ams_sch.pdf}
+\end{minipage}
+\begin{minipage}{0.48\textwidth}
+\begin{itemize}
+\item \textbf{T}ransition \textbf{R}adiation \textbf{D}etector: proton rejection\medskip
+\item magnet \& 9 layers silicon tracker: particle momentum\medskip
+\item \textbf{R}ing \textbf{I}maging \textbf{CH}erenkov: ion identification \& velocity measurement\medskip
+\item \textbf{T}ime \textbf{O}f \textbf{F}light: particle mass\medskip
+\item \textbf{E}lectromagnetic \textbf{Cal}orimeter: particle energy
+\end{itemize}
+\end{minipage}
+\end{figure}
+\footnotetext[19]{inspirehep.net}
+\end{frame}
+\setbeamercolor{normal text}{fg=white,bg=black}
+\renewcommand\footnoterule{}
+\begin{frame}[plain]
+\begin{tikzpicture}[remember picture,overlay]
+\node[at=(current page.center)] {
+%\includegraphics[keepaspectratio,width=\textwidth]{build/ams_table.pdf}
+};
+\end{tikzpicture}
+\footnotetext[20]{EPS-HEP Conference 2019}
+\end{frame}
+\renewcommand{\footnoterule}{%
+  \kern -3pt
+  \hrule width \textwidth
+  \kern 2pt
+}
+\setbeamercolor{normal text}{fg=black,bg=white}
+\begin{frame}{Positron excess in cosmic ray events}
+\begin{minipage}{\textwidth}
+%\includegraphics[keepaspectratio, width=0.75\textwidth]{build/positron.pdf}
+\end{minipage}\vfill
+\begin{minipage}{\textwidth}
+\begin{itemize}
+\item cosmic ray collisions only known origin of positrons
+\end{itemize}
+\end{minipage}
+\footnotetext[21]{DOI:10.1103/PhysRevLett.122.041102}
+\end{frame}
+\begin{frame}{Positron excess in cosmic ray events}
+\begin{minipage}{\textwidth}
+%\includegraphics[keepaspectratio,width=0.75\textwidth]{build/positron_unk.png}
+\end{minipage}\vfill
+\begin{minipage}{\textwidth}
+\begin{itemize}
+\item maximum at $\mathcal{O}(\si{\giga\eV})$, flat tail towards higher energies\\
+$\rightarrow$ excess in $0.1$-$\SI{1}{\tera\eV}$ positrons with cutoff $E_\text{s}$
+\end{itemize}
+\end{minipage}
+\footnotetext[20]{cf. EPS-HEP Conference 2019}
+\end{frame}
+\begin{frame}{Positron excess in cosmic ray events}
+\begin{minipage}{\textwidth}
+%\includegraphics[keepaspectratio,width=0.75\textwidth]{build/positron_src.pdf}
+\end{minipage}\vfill
+\begin{minipage}{\textwidth}
+\begin{itemize}
+\item maximum at $\mathcal{O}(\si{\giga\eV})$, flat tail towards higher energies\\
+$\rightarrow$ excess in $0.1$-$\SI{1}{\tera\eV}$ positrons with cutoff $E_\text{s}$
+\end{itemize}
+\end{minipage}
+\footnotetext[21]{DOI:10.1103/PhysRevLett.122.041102}
+\end{frame}
+\begin{frame}{Positron excess in cosmic ray events}
+\begin{minipage}{0.5\textwidth}
+%\includegraphics[keepaspectratio, width=0.9\textwidth]{build/positron_src.pdf}
+\end{minipage}
+\begin{minipage}{0.4\textwidth}
+\begin{tiny}
+\[
+\Phi_{\mathrm{e}^{+}}(E)=\frac{E^2}{\hat{E}^2}\left[C_\text{d}\left(\frac{\hat{E}}{E_\text{1}}\right)^{\gamma_\text{d}}+C_\text{s}\left(\frac{\hat{E}}{E_\text{2}}\right)^{\gamma_\text{s}}\mathrm{e}^{-\frac{\hat{E}}{E_\text{s}}}\right]
+\]
+\end{tiny}
+\begin{itemize}
+\item excess can be described adding a source term\medskip
+\item established at $99,99\%$ CL with $E_\text{s}= 810^{+310}_{-180} \si{\giga\eV}$
+\end{itemize}
+\end{minipage}\vfill\pause
+\begin{minipage}{\textwidth}
+\begin{itemize}
+\item pulsars can produce high energy positrons, but without sharp $E_\text{S}$\medskip
+\item they do not produce anti-protons
+\end{itemize}
+\end{minipage}
+\end{frame}
+\begin{frame}{The anti-proton excess}
+\begin{minipage}{\textwidth}
+\centering
+%\includegraphics[keepaspectratio,width=0.75\textwidth]{build/anti_proton.png}
+\end{minipage}
+\begin{minipage}{\textwidth}
+\begin{itemize}
+\item anti-protons follow similar distribution\medskip
+\item could hint for DM annihilation:\\
+equal production of matter/antimatter $\rightarrow$ sharp cut at $E\approx M_\text{DM}$
+\end{itemize}
+\end{minipage}
+\footnotetext[20]{cf. EPS-HEP Conference 2019}
+\end{frame}
+\begin{frame}{Comparison of previous experiments}
+\begin{minipage}{\textwidth}
+\centering
+%\includegraphics[keepaspectratio,width=0.75\textwidth]{build/results.png}
+\end{minipage}\vfill
+\begin{minipage}{\textwidth}
+\begin{itemize}
+\item confirming trends from LAT(2009), AMS-02(2013), PAMELA(2016) \medskip
+\item first measurement of cutoff in $\si{TeV}$-positrons
+\end{itemize}
+\end{minipage}
+\footnotetext[21]{DOI:10.1103/PhysRevLett.122.041102}
+\end{frame}
+\section{Conclusion and outlook}
+\begin{frame}{Conclusion and outlook}
+\begin{minipage}{0.42\textwidth}
+conclusion:
+\begin{itemize}
+\item steady stream of new theories and scenarios\medskip
+\item for now no unambiguous observations\medskip
+\item background is mostly unknown $\rightarrow$ other explanations possible 
+\end{itemize}
+\end{minipage}
+\begin{minipage}{0.57\textwidth}
+%\includegraphics[keepaspectratio,width=0.75\textwidth]{build/expect.png}
+\end{minipage}\vfill
+\begin{minipage}{\textwidth}
+outlook:
+\begin{itemize}
+\item extension of data taking period for AMS-02 $\rightarrow$ reduction of uncertainties\medskip
+\item new upcoming experiments with better resolution: GAMMA-400, CTA
+\end{itemize}
+\end{minipage}
+\footnotetext[20]{EPS-HEP Conference 2019}
+\end{frame}
+\end{document}
+
+%♣☺∟♦☻♦☻☺®☺♠☺♥♦♠
